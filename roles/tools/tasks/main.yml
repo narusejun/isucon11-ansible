@@ -1,0 +1,6 @@
+- name: install tools
+  apt:
+    pkg:
+      - dstat
+      - fish
+      - nano

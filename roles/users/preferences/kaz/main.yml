@@ -1,0 +1,4 @@
+- name: exec fish
+  lineinfile:
+    path: /home/kaz/.bashrc
+    line: exec fish

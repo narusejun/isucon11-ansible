@@ -1,0 +1,29 @@
+- name: make wheel group
+  group:
+    name: wheel
+
+- name: make wheel sudoer
+  lineinfile:
+    path: /etc/sudoers
+    regexp: "^%wheel\\s"
+    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+
+- name: add users
+  user:
+    name: "{{ item }}"
+    append: yes
+    groups: wheel
+    shell: /bin/bash
+  loop: "{{ users }}"
+
+- name: put shell profiles
+  copy:
+    src: 99-isucon-{{ item }}.sh
+    dest: /etc/profile.d/99-isucon-{{ item }}.sh
+  loop:
+    - path
+
+- name: apply preferences
+  include_tasks: "{{ item }}"
+  with_fileglob:
+    - ../preferences/*/main.yml

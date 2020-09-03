@@ -1,0 +1,18 @@
+- hosts: srv
+  become: yes
+  roles:
+    - name: users
+      tags:
+        - users
+    - name: tools
+      tags:
+        - tools
+    - name: netdata
+      tags:
+        - netdata
+    - name: myprofiler
+      tags:
+        - myprofiler
+    - name: kataribe
+      tags:
+        - kataribe

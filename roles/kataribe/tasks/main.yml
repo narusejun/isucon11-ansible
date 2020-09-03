@@ -1,0 +1,31 @@
+- name: install unzip
+  apt:
+    name: unzip
+
+- name: download kataribe
+  get_url:
+    url: https://github.com/matsuu/kataribe/releases/download/v0.4.1/kataribe-v0.4.1_linux_amd64.zip
+    checksum: sha1:34da63eb1696b964d30d9fac3b6c2778b9797eb4
+    dest: /tmp/kataribe.zip
+  register: kataribe
+
+- block:
+    - name: install kataribe
+      unarchive:
+        remote_src: yes
+        src: /tmp/kataribe.zip
+        dest: /usr/local/bin
+    - name: delete unused files
+      file:
+        path: /usr/local/bin/{{ item }}
+        state: absent
+      loop:
+        - LICENSE
+        - README.md
+        - kataribe.toml
+  when: kataribe.changed
+
+- name: put configuration
+  copy:
+    src: kataribe.toml
+    dest: /etc/kataribe.toml
