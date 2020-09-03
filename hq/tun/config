@@ -5,7 +5,7 @@ Host *
 	UserKnownHostsFile /dev/null
 
 Host bastion
-	HostName 34.84.116.12
+	HostName bastion.isucon.xyz
 	User kaz
 
 Host s*
@@ -16,10 +16,10 @@ Host s*
 	RemoteForward 0:9200 elasticsearch:9200
 
 Host s1
-	HostName localhost
+	HostName s1.isucon.xyz
 
 Host s2
-	HostName localhost
+	HostName s2.isucon.xyz
 
 Host s3
-	HostName localhost
+	HostName s3.isucon.xyz
