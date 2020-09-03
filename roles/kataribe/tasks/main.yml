@@ -29,3 +29,4 @@
   copy:
     src: kataribe.toml
     dest: /etc/kataribe.toml
+    mode: 0644
