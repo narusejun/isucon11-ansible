@@ -16,3 +16,6 @@
     - name: kataribe
       tags:
         - kataribe
+    - name: slackcat
+      tags:
+        - slackcat

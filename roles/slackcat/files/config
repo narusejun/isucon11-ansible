@@ -1,0 +1,5 @@
+default_team = "narusejun"
+default_channel = "isucon10-sandbox"
+
+[teams]
+  narusejun = "xoxp-257409249827-1337501152277-1333863012726-b461d5b964141b11a05745208d78c75e"
