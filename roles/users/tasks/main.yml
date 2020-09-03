@@ -20,10 +20,11 @@
   copy:
     src: 99-isucon-{{ item }}.sh
     dest: /etc/profile.d/99-isucon-{{ item }}.sh
+    mode: 0644
   loop:
     - path
 
 - name: apply preferences
   include_tasks: "{{ item }}"
   with_fileglob:
-    - ../preferences/*/main.yml
+    - preferences/*-main.yml

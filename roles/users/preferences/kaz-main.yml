@@ -1,0 +1,7 @@
+- name: exec fish
+  copy:
+    dest: /home/kaz/.bash_profile
+    content: |
+      if [ -x "$(command -v fish)" ]; then
+        exec fish
+      fi
