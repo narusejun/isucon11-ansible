@@ -1,4 +1,4 @@
 - name: exec fish
   lineinfile:
-    path: /home/kaz/.bashrc
-    line: exec fish
+    path: /home/kaz/.bash_profile
+    line: if [ -x "$(command -v fish)" ]; then exec fish; fi
