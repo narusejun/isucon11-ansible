@@ -1,0 +1,59 @@
+version: "3"
+
+volumes:
+  elasticsearch:
+  phpmyadmin:
+
+services:
+
+  tun_s1:
+    build: tun
+    command: -N s1
+    volumes:
+      - ./tun/config:/root/.ssh/config:ro
+
+  tun_s2:
+    build: tun
+    command: -N s2
+    volumes:
+      - ./tun/config:/root/.ssh/config:ro
+
+  tun_s3:
+    build: tun
+    command: -N s3
+    volumes:
+      - ./tun/config:/root/.ssh/config:ro
+
+  elasticsearch:
+    image: elasticsearch:7.9.0
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+    environment:
+      discovery.type: single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    image: kibana:7.9.0
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:fpm-alpine
+    volumes:
+      - phpmyadmin:/var/www/html
+
+  nginx:
+    image: nginx:mainline-alpine
+    depends_on:
+      - tun_s1
+      - tun_s2
+      - tun_s3
+      - kibana
+      - phpmyadmin
+    volumes:
+      - phpmyadmin:/opt/phpmyadmin:ro
+      - ./nginx/tls:/etc/nginx/tls:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 10443:443

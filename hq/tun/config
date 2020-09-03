@@ -1,0 +1,25 @@
+Host *
+	TCPKeepAlive yes
+	ServerAliveInterval 60
+	StrictHostKeyChecking no
+	UserKnownHostsFile /dev/null
+
+Host bastion
+	HostName 34.84.116.12
+	User kaz
+
+Host s*
+	User kaz
+	ProxyJump bastion
+	LocalForward 0:3306 0:3306
+	LocalForward 0:19999 0:19999
+	RemoteForward 0:9200 elasticsearch:9200
+
+Host s1
+	HostName localhost
+
+Host s2
+	HostName localhost
+
+Host s3
+	HostName localhost
