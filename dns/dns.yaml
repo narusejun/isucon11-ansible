@@ -1,0 +1,13 @@
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./zones
+    default_ttl: 1 # auto
+  cloudflare:
+    class: octodns.provider.cloudflare.CloudflareProvider
+    token: 29urvFb5cPMMNaGbtvwYi2_J6fAy8vIlRuOQy5-b
+
+zones:
+  isucon.xyz.:
+    sources: [config]
+    targets: [cloudflare]

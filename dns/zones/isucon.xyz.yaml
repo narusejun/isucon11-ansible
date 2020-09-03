@@ -1,0 +1,18 @@
+"*":
+  type: CNAME
+  value: hq.isucon.xyz.
+bastion:
+  type: A
+  value: 127.0.0.1
+hq:
+  type: A
+  value: 127.0.0.1
+s1:
+  type: A
+  value: 127.0.0.1
+s2:
+  type: A
+  value: 127.0.0.1
+s3:
+  type: A
+  value: 127.0.0.1
