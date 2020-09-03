@@ -1,5 +1,6 @@
 - name: install tools
   apt:
+    update_cache: yes
     pkg:
       - dstat
       - fish
