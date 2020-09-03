@@ -1,0 +1,15 @@
+- name: install filebeat
+  apt:
+    deb: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.9.0-amd64.deb
+
+- name: put configuration
+  copy:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+    mode: 0644
+
+- name: enable filebeat
+  systemd:
+    name: filebeat
+    enabled: yes
+    state: restarted

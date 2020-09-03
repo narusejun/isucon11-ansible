@@ -1,0 +1,29 @@
+setup.ilm.enabled: false
+setup.template.enabled: false
+
+filebeat.inputs:
+  - type: log
+    paths:
+      - /var/log/nginx/access.log
+
+processors:
+  - dissect:
+      tokenizer: '%{remote_addr} - %{remote_user} [%{time_local}] "%{request_verb} %{request_path} %{request_version}" %{status} %{body_bytes_sent} "%{http_referer}" "%{http_user_agent}" %{request_time}'
+      field: message
+      target_prefix: access
+  - timestamp:
+      field: access.time_local
+      layouts:
+        - 02/Jan/2006:15:04:05 -0700
+  - drop_fields:
+      fields:
+        - agent
+        - ecs
+        - input
+        - log
+
+output.elasticsearch:
+  index: nginx-%{+yyyy.MM.dd}
+  hosts:
+    - localhost:9200
+  bulk_max_size: 4096
