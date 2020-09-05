@@ -8,7 +8,7 @@ filebeat.inputs:
 
 processors:
   - dissect:
-      tokenizer: '%{remote_addr} - %{remote_user} [%{time_local}] "%{request_verb} %{request_path} %{request_version}" %{status} %{body_bytes_sent} "%{http_referer}" "%{http_user_agent}" %{request_time}'
+      tokenizer: '%{remote_addr} - %{remote_user} [%{time_local}] "%{request_verb} %{request_path} %{request_version}" %{status|int} %{body_bytes_sent} "%{http_referer}" "%{http_user_agent}" %{request_time}'
       field: message
       target_prefix: access
   - timestamp:
