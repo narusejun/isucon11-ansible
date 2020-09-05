@@ -1,12 +1,12 @@
 - hosts: srv
   become: yes
   roles:
+    - name: general
+      tags:
+        - general
     - name: users
       tags:
         - users
-    - name: tools
-      tags:
-        - tools
     - name: netdata
       tags:
         - netdata
