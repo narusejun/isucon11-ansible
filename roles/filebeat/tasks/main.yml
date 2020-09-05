@@ -1,6 +1,6 @@
 - name: install filebeat
-  apt:
-    deb: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.9.0-amd64.deb
+  yum:
+    name: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.9.1-x86_64.rpm
 
 - name: put configuration
   copy:

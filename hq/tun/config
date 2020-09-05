@@ -10,7 +10,7 @@ Host bastion
 
 Host s*
 	User kaz
-	ProxyJump bastion
+#	ProxyJump bastion
 	LocalForward 0:3306 0:3306
 	LocalForward 0:19999 0:19999
 	RemoteForward 0:9200 elasticsearch:9200

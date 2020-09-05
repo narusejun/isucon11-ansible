@@ -1,5 +1,5 @@
 - name: install tools
-  apt:
+  yum:
     update_cache: yes
     pkg:
       - dstat

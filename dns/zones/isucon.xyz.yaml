@@ -6,7 +6,7 @@ bastion:
   value: 127.0.0.1
 hq:
   type: A
-  value: 127.0.0.1
+  value: 34.84.116.12
 s1:
   type: A
   value: 127.0.0.1

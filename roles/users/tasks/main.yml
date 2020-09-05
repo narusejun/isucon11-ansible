@@ -16,6 +16,12 @@
     shell: /bin/bash
   loop: "{{ users }}"
 
+- name: add ssh key
+  authorized_key:
+    user: "{{ item }}"
+    key: https://github.com/{{ item }}.keys
+  loop: "{{ users }}"
+
 - name: put shell profiles
   copy:
     src: 99-isucon-{{ item }}.sh
