@@ -42,6 +42,7 @@ services:
     image: phpmyadmin/phpmyadmin:fpm-alpine
     volumes:
       - phpmyadmin:/var/www/html
+      - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
 
   nginx:
     image: nginx:mainline-alpine
@@ -56,4 +57,5 @@ services:
       - ./nginx/tls:/etc/nginx/tls:ro
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - 10443:443
+      - 80:80
+      - 443:443
