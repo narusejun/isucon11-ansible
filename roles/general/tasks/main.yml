@@ -3,7 +3,7 @@
     name: "{{ inventory_hostname_short }}"
 
 - name: install tools
-  yum:
+  apt:
     update_cache: yes
     pkg:
       - dstat
