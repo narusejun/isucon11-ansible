@@ -10,7 +10,7 @@ Host bastion
 
 Host s*
 	User kaz
-#	ProxyJump bastion
+	ProxyJump bastion
 	LocalForward 0:80 0:80
 	LocalForward 0:443 0:443
 	LocalForward 0:3306 0:3306
