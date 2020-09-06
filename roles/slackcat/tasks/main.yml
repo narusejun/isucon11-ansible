@@ -2,23 +2,23 @@
   get_url:
     url: https://github.com/bcicen/slackcat/releases/download/v1.6/slackcat-1.6-linux-amd64
     checksum: sha1:96ae37071da6a5811b0edc28b79a9cf1f649ee23
+    dest: /usr/local/bin/slackcat.original
+    mode: "6755"
+
+- name: put script
+  copy:
+    src: slackcat.sh
     dest: /usr/local/bin/slackcat
     mode: 0755
-  register: kataribe
 
 - name: create config dir
   file:
-    path: /etc/config/slackcat
+    path: /root/.config/slackcat
+    state: directory
     recurse: yes
 
 - name: put configuration
   copy:
     src: config
-    dest: /etc/config/slackcat/config
-    mode: 0644
-
-- name: put shell profiles
-  copy:
-    src: 99-isucon-slackcat.sh
-    dest: /etc/profile.d/99-isucon-slackcat.sh
+    dest: /root/.config/slackcat/config
     mode: 0644
