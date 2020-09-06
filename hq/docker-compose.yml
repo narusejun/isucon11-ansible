@@ -11,21 +11,24 @@ services:
     command: -N s1
     volumes:
       - ./tun/config:/root/.ssh/config:ro
+    restart: always
 
   tun_s2:
     build: tun
     command: -N s2
     volumes:
       - ./tun/config:/root/.ssh/config:ro
+    restart: always
 
   tun_s3:
     build: tun
     command: -N s3
     volumes:
       - ./tun/config:/root/.ssh/config:ro
+    restart: always
 
   elasticsearch:
-    image: elasticsearch:7.9.0
+    image: elasticsearch:7.9.1
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
     environment:
@@ -34,15 +37,18 @@ services:
       memlock:
         soft: -1
         hard: -1
+    restart: always
 
   kibana:
-    image: kibana:7.9.0
+    image: kibana:7.9.1
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:fpm-alpine
     volumes:
       - phpmyadmin:/var/www/html
       - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
+    restart: always
 
   nginx:
     image: nginx:mainline-alpine
@@ -59,3 +65,4 @@ services:
     ports:
       - 80:80
       - 443:443
+    restart: always
