@@ -1,15 +1,15 @@
 - hosts: srv
   become: yes
   roles:
-    - name: general
-      tags:
-        - general
     - name: users
       tags:
         - users
-    - name: netdata
+    - name: general
       tags:
-        - netdata
+        - general
+    - name: pprof
+      tags:
+        - pprof
     - name: myprofiler
       tags:
         - myprofiler
@@ -22,3 +22,6 @@
     - name: filebeat
       tags:
         - filebeat
+    - name: netdata
+      tags:
+        - netdata
