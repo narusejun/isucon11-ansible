@@ -21,8 +21,6 @@
     user: "{{ item }}"
     key: https://github.com/{{ item }}.keys
   loop: "{{ users }}"
-  tags:
-    - never
 
 - name: put shell profiles
   copy:
