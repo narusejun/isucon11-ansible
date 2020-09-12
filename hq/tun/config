@@ -6,10 +6,11 @@ Host *
 
 Host bastion
 	HostName bastion.isucon.xyz
-	User kaz
+	User isucon
+	Port 20340
 
 Host s*
-	User kaz
+	User isucon
 	ProxyJump bastion
 	LocalForward 0:80 0:80
 	LocalForward 0:443 0:443
