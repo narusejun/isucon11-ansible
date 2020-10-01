@@ -41,6 +41,17 @@
     mode: 0600
   failed_when: false
 
+- name: put /etc/sysctl.d/isucon.conf
+  copy:
+    src: isucon.conf
+    dest: /etc/sysctl.d/isucon.conf
+    mode: 0644
+  register: sysctl
+
+- name: sysctl -p /etc/sysctl.d/isucon.conf
+  command: sysctl -p /etc/sysctl.d/isucon.conf
+  when: sysctl.changed
+
 - name: create service.d
   file:
     state: directory
