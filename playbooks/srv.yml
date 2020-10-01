@@ -19,9 +19,6 @@
     - name: slackcat
       tags:
         - slackcat
-    - name: filebeat
-      tags:
-        - filebeat
     - name: netdata
       tags:
         - netdata

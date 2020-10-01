@@ -15,5 +15,4 @@
         enabled: no
         state: stopped
       loop:
-        - filebeat
         - netdata
