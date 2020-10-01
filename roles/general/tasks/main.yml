@@ -12,3 +12,31 @@
       - nano
       - unzip
       - percona-toolkit
+
+- name: create ssh dir for root
+  file:
+    path: /root/.ssh
+    state: directory
+    mode: 0700
+
+- name: put id_rsa for root
+  copy:
+    src: ../hq/tun/id_rsa
+    dest: /root/.ssh/id_rsa
+    mode: 0600
+
+- name: create ssh dir for isucon
+  become_user: isucon
+  file:
+    path: /home/isucon/.ssh
+    state: directory
+    mode: 0700
+  failed_when: false
+
+- name: put id_rsa for isucon
+  become_user: isucon
+  copy:
+    src: ../hq/tun/id_rsa
+    dest: /home/isucon/.ssh/id_rsa
+    mode: 0600
+  failed_when: false
