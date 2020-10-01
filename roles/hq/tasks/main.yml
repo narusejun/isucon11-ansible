@@ -1,3 +1,7 @@
+- name: set hostname
+  hostname:
+    name: "{{ inventory_hostname_short }}"
+
 - name: install packages
   pacman:
     update_cache: yes
