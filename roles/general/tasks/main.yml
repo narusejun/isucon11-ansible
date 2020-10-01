@@ -11,3 +11,4 @@
       - graphviz
       - nano
       - unzip
+      - percona-toolkit
