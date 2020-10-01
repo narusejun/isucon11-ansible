@@ -7,7 +7,6 @@ Host *
 Host bastion
 	HostName bastion.isucon.xyz
 	User isucon
-	Port 20340
 
 Host s*
 	User isucon

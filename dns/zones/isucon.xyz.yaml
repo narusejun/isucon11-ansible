@@ -3,16 +3,16 @@
   value: hq.isucon.xyz.
 bastion:
   type: A
-  value: 157.112.64.177
+  value: 34.84.240.21
 hq:
   type: A
-  value: 34.84.116.12
+  value: 35.243.69.107
 s1:
   type: A
-  value: 10.161.77.101
+  value: 127.0.0.1
 s2:
   type: A
-  value: 10.161.77.102
+  value: 127.0.0.1
 s3:
   type: A
-  value: 10.161.77.103
+  value: 127.0.0.1
