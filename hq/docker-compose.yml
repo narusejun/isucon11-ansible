@@ -1,7 +1,7 @@
 version: "3"
 
 volumes:
-  elasticsearch:
+  pprotein:
   phpmyadmin:
 
 services:
@@ -27,6 +27,13 @@ services:
       - ./tun/config:/root/.ssh/config:ro
     restart: always
 
+  pprotein:
+    build: pprotein
+    volumes:
+      - pprotein:/opt/pprotein/data
+      - ./pprotein/kataribe.toml:/opt/pprotein/kataribe.toml:ro
+    restart: always
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:fpm-alpine
     volumes:
@@ -40,7 +47,7 @@ services:
       - tun_s1
       - tun_s2
       - tun_s3
-      - kibana
+      - pprotein
       - phpmyadmin
     volumes:
       - phpmyadmin:/opt/phpmyadmin:ro
