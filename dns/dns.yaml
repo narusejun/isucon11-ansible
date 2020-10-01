@@ -5,7 +5,7 @@ providers:
     default_ttl: 1 # auto
   cloudflare:
     class: octodns.provider.cloudflare.CloudflareProvider
-    token: 29urvFb5cPMMNaGbtvwYi2_J6fAy8vIlRuOQy5-b
+    token: gz_Ncq4M8vVhBZJfs17wCh7KmMgQFLOvCqpol4o8
 
 zones:
   isucon.xyz.:
