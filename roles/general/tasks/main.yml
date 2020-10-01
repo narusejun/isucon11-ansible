@@ -63,3 +63,15 @@
 - name: systemd daemon-reload
   systemd:
     daemon_reload: true
+
+- name: create /var/log/nginx
+  file:
+    state: directory
+    path: /var/log/nginx/hit/parade/hoge
+    mode: 0777
+
+- name: touch /var/log/nginx/access.log
+  file:
+    state: touch
+    path: /var/log/nginx/access.log
+    mode: 0666
