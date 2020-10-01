@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk --no-cache add go npm git make && \
+RUN apk add --no-cache go npm git make && \
     git clone https://github.com/kaz/pprotein.git /opt/pprotein && \
 	cd /opt/pprotein/view && \
 	npm i && \
@@ -13,6 +13,8 @@ RUN apk --no-cache add go npm git make && \
 FROM alpine
 
 COPY --from=0 /opt/pprotein/pprotein /usr/local/bin/pprotein
+
+RUN apk add --no-cache graphviz
 
 EXPOSE 9000
 
