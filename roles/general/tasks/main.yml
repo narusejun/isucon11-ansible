@@ -40,3 +40,26 @@
     dest: /home/isucon/.ssh/id_rsa
     mode: 0600
   failed_when: false
+
+- name: create service.d
+  file:
+    state: directory
+    path: /etc/systemd/system/{{ item }}.service.d
+  loop:
+    - nginx
+    - mysql
+    - mariadb
+
+- name: override systemd services
+  copy:
+    src: override.conf
+    dest: /etc/systemd/system/{{ item }}.service.d/override.conf
+    mode: 0644
+  loop:
+    - nginx
+    - mysql
+    - mariadb
+
+- name: systemd daemon-reload
+  systemd:
+    daemon_reload: true
