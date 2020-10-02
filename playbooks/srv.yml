@@ -7,6 +7,9 @@
     - name: general
       tags:
         - general
+    - name: repo
+      tags:
+        - repo
     - name: pprof
       tags:
         - pprof
