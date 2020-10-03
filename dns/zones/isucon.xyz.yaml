@@ -6,7 +6,7 @@ bastion:
   value: 157.112.64.177
 hq:
   type: A
-  value: 34.84.116.12
+  value: 35.243.69.107
 s1:
   type: A
   value: 10.161.77.101
