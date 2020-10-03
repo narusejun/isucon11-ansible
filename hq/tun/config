@@ -17,7 +17,7 @@ Host s*
 	LocalForward 0:3306 0:3306
 	LocalForward 0:9090 0:9090
 	LocalForward 0:19999 0:19999
-	LocalForward 0:40001 0:40001
+	LocalForward 0:9292 0:9292
 	LocalForward 0:40002 0:40002
 
 Host s1
