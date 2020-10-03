@@ -29,9 +29,10 @@
     state: directory
     path: /etc/systemd/system/{{ item }}.service.d
   loop:
-    - nginx
+    - envoy
     - mysql
-    - mariadb
+    - xsuportal-api-golang
+    - xsuportal-web-golang
 
 - name: override systemd services
   copy:
@@ -39,9 +40,10 @@
     dest: /etc/systemd/system/{{ item }}.service.d/override.conf
     mode: 0644
   loop:
-    - nginx
+    - envoy
     - mysql
-    - mariadb
+    - xsuportal-api-golang
+    - xsuportal-web-golang
 
 - name: systemd daemon-reload
   systemd:
