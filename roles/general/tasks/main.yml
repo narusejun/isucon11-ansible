@@ -12,6 +12,7 @@
       - nano
       - unzip
       - percona-toolkit
+      - redis
 
 - name: put /etc/sysctl.d/isucon.conf
   copy:
