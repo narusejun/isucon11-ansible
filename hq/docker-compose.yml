@@ -11,6 +11,9 @@ services:
     command: -N s1
     volumes:
       - ./tun/config:/root/.ssh/config:ro
+      - /root/.gnupg/S.gpg-agent.ssh:/root/.gnupg/S.gpg-agent.ssh
+    environment:
+      SSH_AUTH_SOCK: /root/.gnupg/S.gpg-agent.ssh
     restart: always
 
   tun_s2:
@@ -18,6 +21,9 @@ services:
     command: -N s2
     volumes:
       - ./tun/config:/root/.ssh/config:ro
+      - /root/.gnupg/S.gpg-agent.ssh:/root/.gnupg/S.gpg-agent.ssh
+    environment:
+      SSH_AUTH_SOCK: /root/.gnupg/S.gpg-agent.ssh
     restart: always
 
   tun_s3:
@@ -25,6 +31,9 @@ services:
     command: -N s3
     volumes:
       - ./tun/config:/root/.ssh/config:ro
+      - /root/.gnupg/S.gpg-agent.ssh:/root/.gnupg/S.gpg-agent.ssh
+    environment:
+      SSH_AUTH_SOCK: /root/.gnupg/S.gpg-agent.ssh
     restart: always
 
   pprotein:
@@ -32,6 +41,8 @@ services:
     volumes:
       - pprotein:/opt/pprotein/data
       - ./pprotein/kataribe.toml:/opt/pprotein/kataribe.toml:ro
+    environment:
+      SSH_AUTH_SOCK: /root/.gnupg/S.gpg-agent.ssh
     restart: always
 
   phpmyadmin:
