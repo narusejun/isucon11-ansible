@@ -31,6 +31,7 @@
     path: /etc/systemd/system/{{ item }}.service.d
   loop:
     - envoy
+    - nginx
     - mysql
     - xsuportal-api-golang
     - xsuportal-web-golang
@@ -42,6 +43,7 @@
     mode: 0644
   loop:
     - envoy
+    - nginx
     - mysql
     - xsuportal-api-golang
     - xsuportal-web-golang
