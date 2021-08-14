@@ -1,7 +1,7 @@
 - name: download slackcat
   get_url:
-    url: https://github.com/bcicen/slackcat/releases/download/v1.6/slackcat-1.6-linux-amd64
-    checksum: sha1:96ae37071da6a5811b0edc28b79a9cf1f649ee23
+    url: https://github.com/bcicen/slackcat/releases/download/1.7.3/slackcat-1.7.3-linux-amd64
+    checksum: sha256:df9d1c3d16090e64e96ad268a75c757ecf0a22f58c8ae3c98e284af486a5d1ba
     dest: /usr/local/bin/slackcat.original
     mode: "6755"
 
