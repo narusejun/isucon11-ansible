@@ -4,10 +4,10 @@
     state: directory
     mode: 0700
 
-- name: put id_rsa for root
+- name: put id_ecdsa for root
   copy:
-    src: ../hq/tun/id_rsa
-    dest: /root/.ssh/id_rsa
+    src: ../hq/tun/id_ecdsa
+    dest: /root/.ssh/id_ecdsa
     mode: 0600
 
 - name: put .gitconfig for root
@@ -24,10 +24,10 @@
     owner: isucon
     group: isucon
 
-- name: put id_rsa for isucon
+- name: put id_ecdsa for isucon
   copy:
-    src: ../hq/tun/id_rsa
-    dest: /home/isucon/.ssh/id_rsa
+    src: ../hq/tun/id_ecdsa
+    dest: /home/isucon/.ssh/id_ecdsa
     mode: 0600
     owner: isucon
     group: isucon
