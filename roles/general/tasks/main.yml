@@ -30,11 +30,9 @@
     state: directory
     path: /etc/systemd/system/{{ item }}.service.d
   loop:
-    - envoy
     - nginx
     - mysql
-    - xsuportal-api-golang
-    - xsuportal-web-golang
+    - isuumo.go
 
 - name: override systemd services
   copy:
@@ -42,11 +40,9 @@
     dest: /etc/systemd/system/{{ item }}.service.d/override.conf
     mode: 0644
   loop:
-    - envoy
     - nginx
     - mysql
-    - xsuportal-api-golang
-    - xsuportal-web-golang
+    - isuumo.go
 
 - name: systemd daemon-reload
   systemd:
@@ -55,7 +51,7 @@
 - name: create /var/log/nginx
   file:
     state: directory
-    path: /var/log/nginx/hit/parade/hoge
+    path: /var/log/nginx
     mode: 0777
 
 - name: touch /var/log/nginx/access.log

@@ -43,6 +43,6 @@
 - name: clone repository
   become_user: isucon
   git:
-    repo: git@github.com:narusejun/isucon10-final.git
-    dest: /home/isucon/isucon10-final
+    repo: git@github.com:narusejun/isucon11-exercise.git
+    dest: /home/isucon/isucon11-exercise
     accept_hostkey: yes

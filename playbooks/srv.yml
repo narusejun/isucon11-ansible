@@ -1,9 +1,6 @@
 - hosts: srv
   become: yes
   roles:
-    - name: users
-      tags:
-        - users
     - name: general
       tags:
         - general
@@ -13,9 +10,9 @@
     - name: pprof
       tags:
         - pprof
-    - name: myprofiler
+    - name: percona-toolkit
       tags:
-        - myprofiler
+        - percona-toolkit
     - name: kataribe
       tags:
         - kataribe
