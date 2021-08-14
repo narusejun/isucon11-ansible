@@ -10,9 +10,6 @@
     - name: repository
       tags:
         - repository
-    - name: pprof
-      tags:
-        - pprof
     - name: percona-toolkit
       tags:
         - percona-toolkit

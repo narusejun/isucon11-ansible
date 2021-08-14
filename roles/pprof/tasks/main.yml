@@ -1,6 +1,0 @@
-- name: download pprof
-  get_url:
-    url: https://github.com/narusejun/pprof/releases/download/pprof/pprof
-    checksum: sha1:16f811884676e1415ac5b6ee5b6d977f2de9bba4
-    dest: /usr/local/bin/pprof
-    mode: 0755
