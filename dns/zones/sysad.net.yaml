@@ -1,0 +1,15 @@
+"*":
+  type: CNAME
+  value: hq.sysad.net.
+hq:
+  type: A
+  value: 35.76.31.229
+s1:
+  type: A
+  value: 35.74.21.174
+s2:
+  type: A
+  value: 35.74.21.174
+s3:
+  type: A
+  value: 35.74.21.174

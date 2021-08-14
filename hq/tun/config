@@ -15,10 +15,10 @@ Host s*
 	LocalForward 0:40002 0:40002
 
 Host s1
-	HostName 35.74.21.174
+	HostName s1.sysad.net
 
 Host s2
-	HostName 35.74.21.174
+	HostName s2.sysad.net
 
 Host s3
-	HostName 35.74.21.174
+	HostName s3.sysad.net
