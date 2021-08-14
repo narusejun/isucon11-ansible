@@ -1,7 +1,7 @@
 - name: download kataribe
   get_url:
-    url: https://github.com/matsuu/kataribe/releases/download/v0.4.1/kataribe-v0.4.1_linux_amd64.zip
-    checksum: sha1:34da63eb1696b964d30d9fac3b6c2778b9797eb4
+    url: https://github.com/matsuu/kataribe/releases/download/v0.4.2/kataribe-v0.4.2_linux_amd64.zip
+    checksum: sha1:f915678c43b68398263ea5a6e5950042cd9dc317
     dest: /tmp/kataribe.zip
   register: kataribe
 
