@@ -5,7 +5,6 @@ volumes:
   phpmyadmin:
 
 services:
-
   tun_s1:
     build: tun
     command: -N s1
@@ -53,7 +52,7 @@ services:
     restart: always
 
   nginx:
-    image: nginx:mainline-alpine
+    image: nginx:alpine
     depends_on:
       - tun_s1
       - tun_s2

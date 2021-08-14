@@ -27,7 +27,7 @@
 
 - name: put id_ecdsa
   copy:
-    src: ../hq/tun/id_ecdsa
+    src: ../../keys/files/id_ecdsa
     dest: /root/.ssh/id_ecdsa
     mode: 0600
 

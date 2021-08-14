@@ -1,0 +1,47 @@
+- name: create ssh dir for root
+  file:
+    path: /root/.ssh
+    state: directory
+    mode: 0700
+
+- name: put id_ecdsa for root
+  copy:
+    src: id_ecdsa
+    dest: /root/.ssh/id_ecdsa
+    mode: 0600
+
+- name: create ssh dir for isucon
+  file:
+    path: /home/isucon/.ssh
+    state: directory
+    mode: 0700
+    owner: isucon
+    group: isucon
+
+- name: put id_ecdsa for isucon
+  copy:
+    src: id_ecdsa
+    dest: /home/isucon/.ssh/id_ecdsa
+    mode: 0600
+    owner: isucon
+    group: isucon
+
+- name: create user isu-agent
+  user:
+    name: isu-agent
+
+- name: create ssh dir for isu-agent
+  file:
+    path: /home/isu-agent/.ssh
+    state: directory
+    mode: 0700
+    owner: isu-agent
+    group: isu-agent
+
+- name: put authorized_keys for isu-agent
+  copy:
+    src: id_ecdsa.pub
+    dest: /home/isu-agent/.ssh/authorized_keys
+    mode: 0600
+    owner: isu-agent
+    group: isu-agent

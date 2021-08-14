@@ -1,0 +1,20 @@
+- name: put .gitconfig for root
+  copy:
+    src: .gitconfig
+    dest: /root/.gitconfig
+    mode: 0644
+
+- name: put .gitconfig for isucon
+  copy:
+    src: .gitconfig
+    dest: /home/isucon/.gitconfig
+    mode: 0644
+    owner: isucon
+    group: isucon
+
+- name: clone repository
+  become_user: isucon
+  git:
+    repo: git@github.com:narusejun/isucon11-exercise.git
+    dest: /home/isucon/isucon11-exercise
+    accept_hostkey: yes

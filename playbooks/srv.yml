@@ -4,9 +4,12 @@
     - name: general
       tags:
         - general
-    - name: repo
+    - name: keys
       tags:
-        - repo
+        - keys
+    - name: repository
+      tags:
+        - repository
     - name: pprof
       tags:
         - pprof
