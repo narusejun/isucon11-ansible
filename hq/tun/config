@@ -4,14 +4,8 @@ Host *
 	StrictHostKeyChecking no
 	UserKnownHostsFile /dev/null
 
-Host bastion
-	HostName bastion.isucon.xyz
-	User isucon
-	Port 20340
-
 Host s*
 	User isucon
-	ProxyJump bastion
 	LocalForward 0:80 0:80
 	LocalForward 0:443 0:443
 	LocalForward 0:3306 0:3306
@@ -21,10 +15,10 @@ Host s*
 	LocalForward 0:40002 0:40002
 
 Host s1
-	HostName s1.isucon.xyz
+	HostName 35.76.31.229
 
 Host s2
-	HostName s2.isucon.xyz
+	HostName 35.76.31.229
 
 Host s3
-	HostName s3.isucon.xyz
+	HostName 35.76.31.229

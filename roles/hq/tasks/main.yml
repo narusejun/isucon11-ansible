@@ -3,7 +3,7 @@
     name: "{{ inventory_hostname_short }}"
 
 - name: install packages
-  pacman:
+  apt:
     update_cache: yes
     name:
       - docker
@@ -25,19 +25,19 @@
     state: directory
     mode: 0700
 
-- name: put id_rsa
+- name: put id_ecdsa
   copy:
-    src: ../hq/tun/id_rsa
-    dest: /root/.ssh/id_rsa
+    src: ../hq/tun/id_ecdsa
+    dest: /root/.ssh/id_ecdsa
     mode: 0600
 
 - name: clone repo
   git:
-    repo: git@github.com:narusejun/isucon10.git
-    dest: /opt/isucon10
+    repo: git@github.com:narusejun/isucon11-ansible.git
+    dest: /opt/isucon11-ansible
     accept_hostkey: yes
 
 - name: start containers
   command: docker-compose up -d
   args:
-    chdir: /opt/isucon10/hq
+    chdir: /opt/isucon11-ansible/hq

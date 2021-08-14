@@ -1,9 +1,6 @@
 - hosts: hq
   become: yes
   roles:
-    - name: users
-      tags:
-        - users
     - name: hq
       tags:
         - hq
