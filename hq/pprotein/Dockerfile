@@ -1,22 +1,45 @@
+# --------------------------------------------------
+
+FROM alpine AS pprotein
+
+RUN apk add git go npm make
+
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:$PATH
+
+RUN git clone https://github.com/kaz/pprotein.git /go/src/app
+WORKDIR /go/src/app
+
+RUN make view/dist
+RUN make pprotein
+
+# --------------------------------------------------
+
+FROM alpine AS kataribe
+
+RUN apk add go
+
+ENV GOPATH /go
+RUN go get github.com/matsuu/kataribe
+
+# --------------------------------------------------
+
+FROM alpine AS percona-toolkit
+
+RUN wget https://downloads.percona.com/downloads/percona-toolkit/3.3.1/binary/tarball/percona-toolkit-3.3.1_x86_64.tar.gz
+RUN tar zxvf percona-toolkit-3.3.1_x86_64.tar.gz
+
+# --------------------------------------------------
+
 FROM alpine
 
-RUN apk add --no-cache go npm git make && \
-    git clone https://github.com/kaz/pprotein.git /opt/pprotein && \
-	cd /opt/pprotein/view && \
-	npm i && \
-	npm run build && \
-	cd /opt/pprotein && \
-    export GOPATH=$HOME/go && \
-    export PATH=$GOPATH/bin:$PATH && \
-	make build
+RUN apk add --no-cache bash perl perl-dbd-mysql perl-time-hires graphviz
 
-FROM alpine
+COPY --from=pprotein /go/src/app/pprotein /usr/local/bin
+COPY --from=kataribe /go/bin/kataribe /usr/local/bin
+COPY --from=percona-toolkit /percona-toolkit-3.3.1/bin/* /usr/local/bin
 
-COPY --from=0 /opt/pprotein/pprotein /usr/local/bin/pprotein
-
-RUN apk add --no-cache graphviz
-
-EXPOSE 9000
-
+RUN mkdir -p /opt/pprotein
 WORKDIR /opt/pprotein
+
 ENTRYPOINT ["pprotein"]

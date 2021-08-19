@@ -30,7 +30,6 @@ services:
     build: pprotein
     volumes:
       - pprotein:/opt/pprotein/data
-      - ./pprotein/kataribe.toml:/opt/pprotein/kataribe.toml:ro
     restart: always
 
   phpmyadmin:
