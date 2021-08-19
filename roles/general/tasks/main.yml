@@ -32,7 +32,7 @@
   loop:
     - nginx
     - mysql
-    - isuumo.go
+    - web-golang
 
 - name: override systemd services
   copy:
@@ -42,20 +42,26 @@
   loop:
     - nginx
     - mysql
-    - isuumo.go
+    - web-golang
 
 - name: systemd daemon-reload
   systemd:
     daemon_reload: yes
 
-- name: create /var/log/nginx
+- name: create directories
   file:
     state: directory
-    path: /var/log/nginx
+    path: "{{ item }}"
     mode: 0777
+  loop:
+    - /var/log/nginx
+    - /var/log/mysql
 
-- name: touch /var/log/nginx/access.log
+- name: touch files
   file:
     state: touch
-    path: /var/log/nginx/access.log
+    path: "{{ item }}"
     mode: 0666
+  loop:
+    - /var/log/nginx/access.log
+    - /var/log/mysql/mysql-slow.log
