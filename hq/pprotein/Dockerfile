@@ -35,9 +35,9 @@ FROM alpine
 
 RUN apk add --no-cache bash perl perl-dbd-mysql perl-time-hires graphviz
 
-COPY --from=pprotein /go/src/app/pprotein /usr/local/bin
-COPY --from=kataribe /go/bin/kataribe /usr/local/bin
-COPY --from=percona-toolkit /percona-toolkit-3.3.1/bin/* /usr/local/bin
+COPY --from=pprotein /go/src/app/pprotein /usr/local/bin/
+COPY --from=kataribe /go/bin/kataribe /usr/local/bin/
+COPY --from=percona-toolkit /percona-toolkit-3.3.1/bin/* /usr/local/bin/
 
 RUN mkdir -p /opt/pprotein
 WORKDIR /opt/pprotein
