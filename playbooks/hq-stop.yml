@@ -1,0 +1,7 @@
+- hosts: hq
+  become: yes
+  tasks:
+    - name: stop containers
+      command: docker-compose down
+      args:
+        chdir: /opt/isucon11-ansible/hq
