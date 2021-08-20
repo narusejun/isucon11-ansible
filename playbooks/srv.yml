@@ -10,12 +10,9 @@
     - name: repository
       tags:
         - repository
-    - name: percona-toolkit
+    - name: alp
       tags:
-        - percona-toolkit
-    - name: kataribe
-      tags:
-        - kataribe
+        - alp
     - name: slackcat
       tags:
         - slackcat

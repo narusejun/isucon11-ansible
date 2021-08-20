@@ -1,0 +1,13 @@
+- name: download alp
+  get_url:
+    url: https://github.com/tkuchiki/alp/releases/download/v1.0.7/alp_linux_amd64.zip
+    checksum: sha1:4bd3fd8b1d9db5a79bdeccf4b713a4a69d4da8b9
+    dest: /tmp/alp.zip
+  register: alp
+
+- name: install alp
+  unarchive:
+    remote_src: yes
+    src: /tmp/alp.zip
+    dest: /usr/local/bin
+  when: alp.changed

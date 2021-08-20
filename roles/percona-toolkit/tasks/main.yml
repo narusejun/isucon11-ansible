@@ -1,3 +1,0 @@
-- name: install percona-toolkit
-  apt:
-    deb: https://downloads.percona.com/downloads/percona-toolkit/3.3.1/binary/debian/focal/x86_64/percona-toolkit_3.3.1-1.focal_amd64.deb

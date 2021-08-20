@@ -9,10 +9,12 @@
       - dstat
       - fish
       - graphviz
+      - htop
       - nano
-      - unzip
       - percona-toolkit
       - redis
+      - rsync
+      - unzip
 
 - name: put /etc/sysctl.d/isucon.conf
   copy:
