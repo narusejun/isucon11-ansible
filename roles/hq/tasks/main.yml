@@ -31,13 +31,12 @@
     dest: /root/.ssh/id_ecdsa
     mode: 0600
 
-- name: clone repo
-  git:
-    repo: "{{ hq.repository.remote }}"
-    dest: "{{ hq.repository.dest }}"
-    accept_hostkey: yes
+- name: synchronize docker-copmose configurations
+  synchronize:
+    src: "{{ playbook_dir }}/../hq"
+    dest: /opt
 
 - name: start containers
   command: docker-compose up -d
   args:
-    chdir: "{{ hq.repository.dest }}/hq"
+    chdir: /opt/hq

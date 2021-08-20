@@ -9,21 +9,24 @@ services:
     build: tun
     command: -N s1
     volumes:
-      - ./tun/config:/root/.ssh/config:ro
+      - /root/.ssh:/root/.ssh:ro
+      - ./tun/config:/etc/ssh/ssh_config:ro
     restart: always
 
   tun_s2:
     build: tun
     command: -N s2
     volumes:
-      - ./tun/config:/root/.ssh/config:ro
+      - /root/.ssh:/root/.ssh:ro
+      - ./tun/config:/etc/ssh/ssh_config:ro
     restart: always
 
   tun_s3:
     build: tun
     command: -N s3
     volumes:
-      - ./tun/config:/root/.ssh/config:ro
+      - /root/.ssh:/root/.ssh:ro
+      - ./tun/config:/etc/ssh/ssh_config:ro
     restart: always
 
   pprotein:
