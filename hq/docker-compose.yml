@@ -27,7 +27,7 @@ services:
     restart: always
 
   pprotein:
-    build: pprotein
+    image: ghcr.io/kaz/pprotein
     volumes:
       - pprotein:/opt/pprotein/data
     restart: always

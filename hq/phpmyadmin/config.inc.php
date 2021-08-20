@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$cfg['blowfish_secret'] = 'isucon10-narusejun';
+$cfg['blowfish_secret'] = '100万円欲しい';
 
 for ($i = 1; $i <= 3; $i++) {
 	$cfg['Servers'][$i]['auth_type'] = 'config';

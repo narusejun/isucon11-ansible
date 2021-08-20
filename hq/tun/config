@@ -11,6 +11,8 @@ Host s*
 	LocalForward 0:3306  0:3306  # mysql
 	LocalForward 0:8000  0:8000  # generic
 	LocalForward 0:8080  0:8080  # generic
+	LocalForward 0:8888  0:8888  # generic
+	LocalForward 0:19000 0:19000 # pprotein-agent
 	LocalForward 0:19999 0:19999 # netdata
 
 Host s1
