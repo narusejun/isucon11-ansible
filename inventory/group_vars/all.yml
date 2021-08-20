@@ -1,0 +1,18 @@
+general:
+  services:
+    - nginx
+    - mysql
+    - web-golang
+
+hq:
+  repository:
+    remote: git@github.com:narusejun/isucon11-ansible.git
+    dest: /opt/isucon11-ansible
+
+repository:
+  remote: git@github.com:narusejun/isucon11-exercise.git
+  dest: /home/isucon/isucon11-exercise
+
+slackcat:
+  channel: isucon11-sandbox
+  token: xoxp-257409249827-1337501152277-2404611970800-b3852b947ed4a4581751aabb26d432a7

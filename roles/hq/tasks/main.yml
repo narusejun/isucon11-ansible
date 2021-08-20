@@ -33,11 +33,11 @@
 
 - name: clone repo
   git:
-    repo: git@github.com:narusejun/isucon11-ansible.git
-    dest: /opt/isucon11-ansible
+    repo: "{{ hq.repository.remote }}"
+    dest: "{{ hq.repository.dest }}"
     accept_hostkey: yes
 
 - name: start containers
   command: docker-compose up -d
   args:
-    chdir: /opt/isucon11-ansible/hq
+    chdir: "{{ hq.repository.dest }}/hq"

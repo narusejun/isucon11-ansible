@@ -18,7 +18,7 @@
     recurse: yes
 
 - name: put configuration
-  copy:
-    src: config
+  template:
+    src: files/config
     dest: /root/.config/slackcat/config
     mode: 0644

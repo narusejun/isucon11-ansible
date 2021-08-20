@@ -15,6 +15,6 @@
 - name: clone repository
   become_user: isucon
   git:
-    repo: git@github.com:narusejun/isucon11-exercise.git
-    dest: /home/isucon/isucon11-exercise
+    repo: "{{ repository.remote }}"
+    dest: "{{ repository.dest }}"
     accept_hostkey: yes
