@@ -8,3 +8,4 @@
         state: stopped
       loop:
         - netdata
+        - pprotein-agent
