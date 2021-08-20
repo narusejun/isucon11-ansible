@@ -1,0 +1,27 @@
+- name: export pprotein-agent
+  command:
+    creates: "{{ playbook_dir }}/files/pprotein-agent"
+    cmd: docker run --rm -v {{ playbook_dir }}/files:/mnt --entrypoint cp ghcr.io/kaz/pprotein /usr/local/bin/pprotein-agent /mnt/
+  delegate_to: localhost
+
+- name: install musl
+  apt:
+    pkg: musl
+
+- name: install pprotein-agent
+  copy:
+    src: "{{ playbook_dir }}/files/pprotein-agent"
+    dest: /usr/local/bin/pprotein-agent
+    mode: 0755
+
+- name: install pprotein-agent service
+  copy:
+    src: pprotein-agent.service
+    dest: /etc/systemd/system/pprotein-agent.service
+
+- name: enable pprotein-agent
+  systemd:
+    name: pprotein-agent
+    enabled: yes
+    state: restarted
+    daemon_reload: yes

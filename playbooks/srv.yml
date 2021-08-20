@@ -10,6 +10,9 @@
     - name: repository
       tags:
         - repository
+    - name: pprotein-agent
+      tags:
+        - pprotein-agent
     - name: alp
       tags:
         - alp

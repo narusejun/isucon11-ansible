@@ -1,8 +1,9 @@
 general:
   services:
+    - pprotein-agent
+    - web-golang
     - nginx
     - mysql
-    - web-golang
 
 hq:
   repository:
