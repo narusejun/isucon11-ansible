@@ -1,7 +1,7 @@
 general:
   services:
     - pprotein-agent
-    - web-golang
+    #- web-golang
     - nginx
     - mysql
 
@@ -9,10 +9,11 @@ hq:
   repository:
     remote: git@github.com:narusejun/isucon11-ansible.git
     dest: /opt/isucon11-ansible
+    version: qualify
 
 repository:
-  remote: git@github.com:narusejun/isucon11-exercise.git
-  dest: /home/isucon/isucon11-exercise
+  remote: git@github.com:narusejun/isucon11-qualify.git
+  dest: /home/isucon/isucon11-qualify
 
 slackcat:
   channel: isucon11-sandbox
