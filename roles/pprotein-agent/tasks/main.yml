@@ -23,5 +23,5 @@
   systemd:
     name: pprotein-agent
     enabled: yes
-    state: restarted
+    state: started
     daemon_reload: yes
