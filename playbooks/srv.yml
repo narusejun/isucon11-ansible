@@ -19,6 +19,3 @@
     - name: slackcat
       tags:
         - slackcat
-    - name: netdata
-      tags:
-        - netdata

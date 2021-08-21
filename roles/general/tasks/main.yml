@@ -11,8 +11,8 @@
       - graphviz
       - htop
       - nano
+      - netdata
       - percona-toolkit
-      - redis
       - rsync
       - unzip
 

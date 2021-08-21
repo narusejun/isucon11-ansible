@@ -1,9 +1,9 @@
 general:
   services:
     - pprotein-agent
-    #- web-golang
+    - isucondition.go
+    - mariadb
     - nginx
-    - mysql
 
 repository:
   remote: git@github.com:narusejun/isucon11-qualify.git

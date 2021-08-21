@@ -6,10 +6,10 @@ hq:
   value: 54.65.23.219
 s1:
   type: A
-  value: 13.231.244.196
+  value: 3.112.114.53
 s2:
   type: A
-  value: 18.176.54.135
+  value: 3.114.218.143
 s3:
   type: A
-  value: 127.0.0.1
+  value: 13.113.218.3
