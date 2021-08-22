@@ -7,7 +7,7 @@ general:
 
 repository:
   remote: git@github.com:narusejun/isucon11-qualify.git
-  dest: /home/isucon/isucon11-qualify
+  dest: /home/isucon/repo
 
 slackcat:
   channel: isucon11-sandbox
