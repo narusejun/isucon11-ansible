@@ -10,6 +10,9 @@
     - name: repository
       tags:
         - repository
+    - name: golang
+      tags:
+        - golang
     - name: pprotein-agent
       tags:
         - pprotein-agent

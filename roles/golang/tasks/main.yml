@@ -1,0 +1,22 @@
+- name: download golang
+  get_url:
+    url: https://golang.org/dl/go1.17.1.linux-amd64.tar.gz
+    checksum: sha256:dab7d9c34361dc21ec237d584590d72500652e7c909bf082758fb63064fca0ef
+    dest: /tmp/golang.tar.gz
+  register: golang
+
+- name: install golang
+  unarchive:
+    remote_src: yes
+    src: /tmp/golang.tar.gz
+    dest: /opt
+  when: golang.changed
+
+- name: add new golang to PATH
+  blockinfile:
+    path: /home/isucon/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK [narusejun-preference]"
+    block: |
+      export GOROOT=/opt/go
+      export GOPATH=$HOME/go
+      export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
