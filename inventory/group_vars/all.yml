@@ -1,12 +1,12 @@
 general:
   services:
     - pprotein-agent
-    - isucondition.go
+    - isucholar.go
     - mariadb
     - nginx
 
 repository:
-  remote: git@github.com:narusejun/isucon11-qualify.git
+  remote: git@github.com:narusejun/isucon11-final.git
   dest: /home/isucon/repo
 
 slackcat:

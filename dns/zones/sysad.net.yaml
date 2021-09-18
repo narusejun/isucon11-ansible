@@ -3,13 +3,13 @@
   value: hq.sysad.net.
 hq:
   type: A
-  value: 54.65.23.219
+  value: 18.183.179.190
 s1:
   type: A
-  value: 3.112.114.53
+  value: 13.114.123.155
 s2:
   type: A
-  value: 3.114.218.143
+  value: 35.75.208.180
 s3:
   type: A
-  value: 13.113.218.3
+  value: 54.178.14.85
