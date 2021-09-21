@@ -9,6 +9,7 @@ Host s*
 	LocalForward 0:80    0:80    # app
 	LocalForward 0:443   0:443   # app
 	LocalForward 0:3306  0:3306  # mysql
+	LocalForward 0:7000  0:7000  # generic
 	LocalForward 0:8000  0:8000  # generic
 	LocalForward 0:8080  0:8080  # generic
 	LocalForward 0:8888  0:8888  # generic

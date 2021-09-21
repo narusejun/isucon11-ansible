@@ -2,7 +2,7 @@ general:
   services:
     - pprotein-agent
     - isucholar.go
-    - mariadb
+    - mysql
     - nginx
 
 repository:
